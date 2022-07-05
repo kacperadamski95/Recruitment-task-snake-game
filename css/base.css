@@ -1,0 +1,33 @@
+html {
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: #000;
+}
+
+#game-board {
+    background-color: #CCC;
+    width: 100vmin;
+    height: 100vmin;
+    display: grid;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(20, 1fr);
+}
+
+.snake {
+    background-color: #00ccff;
+    border: 0.25vmin solid #000;
+}
+
+.food {
+    background-color: #00ff00;
+    border: 0.25vmin solid #000;
+}
