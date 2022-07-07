@@ -1,3 +1,8 @@
+:root {
+    --background-color--main: #000;
+    --background-color--secondary: #CCC;
+}
+
 html {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
@@ -11,12 +16,12 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    background-color: #000;
-    color: #CCC;
+    background-color: var(--background-color--main);
+    color: var(--background-color--secondary);
 }
 
 #game-board {
-    background-color: #CCC;
+    background-color: var(--background-color--secondary);
     width: 80vmin;
     height: 80vmin;
     display: grid;
@@ -26,14 +31,22 @@ body {
 
 .snake {
     background-color: #00ccff;
-    border: 0.25vmin solid #000;
+    border: 0.25vmin solid var(--background-color--main);
 }
 
 .food {
     background-color: #00ff00;
-    border: 0.25vmin solid #000;
+    border: 0.25vmin solid var(--background-color--main);
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 15vmin;
 }
 
 h1 {
-    padding-bottom: 10vmin;
+    border: 0.5rem solid var(--background-color--secondary);
+    border-radius: 0.5rem;
 }

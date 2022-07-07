@@ -1,7 +1,8 @@
-import { onSnake, expandSnake, SNAKE_SPEED } from './snake.js'
+import { onSnake, expandSnake } from './snake.js'
 import { randomGridPosition } from './grid.js'
 
 let food = getRandomFoodPosition();
+export let SNAKE_SPEED = 4;
 const EXPANSION_RATE = 1
 let counter = 0;
 
@@ -12,7 +13,6 @@ export function update() {
         displayScore(counter)
         speedUpdate(counter)
         food = getRandomFoodPosition()
-        console.log(counter);
     }
 }
 
@@ -38,6 +38,6 @@ function getRandomFoodPosition() {
 
 export function speedUpdate(counter) {
     if (counter % 5 === 0) {
-        SNAKE_SPEED = SNAKE_SPEED + 0.25;
+         SNAKE_SPEED *= 1.25;
     }
 }
