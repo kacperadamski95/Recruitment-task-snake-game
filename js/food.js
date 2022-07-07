@@ -1,15 +1,23 @@
-import { onSnake, expandSnake } from './snake.js'
+import { onSnake, expandSnake, SNAKE_SPEED } from './snake.js'
 import { randomGridPosition } from './grid.js'
 
 let food = getRandomFoodPosition();
 const EXPANSION_RATE = 1
+let counter = 0;
 
 export function update() {
     if (onSnake(food)) {
+        counter++;
         expandSnake(EXPANSION_RATE)
-        //nowe miejsce pojawienia się jedzenia
+        displayScore(counter)
+        speedUpdate(counter)
         food = getRandomFoodPosition()
+        console.log(counter);
     }
+}
+
+export function displayScore(counter) {
+    document.getElementsByClassName("score")[0].innerHTML = counter;
 }
 
 export function draw(gameBoard) {
@@ -26,4 +34,10 @@ function getRandomFoodPosition() {
         newFoodPosition = randomGridPosition()
     }
     return newFoodPosition
+}
+
+export function speedUpdate(counter) {
+    if (counter % 5 === 0) {
+        SNAKE_SPEED = SNAKE_SPEED + 0.25;
+    }
 }

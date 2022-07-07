@@ -2,19 +2,13 @@ import { getInputDirection } from "./input.js";
 
 export let SNAKE_SPEED = 5;
 const snakeBody = [{ x: 10, y: 10}];
-let newSegments = 0
+let newSegments = 0;
 
 export function update() {
-    // document.getElementsByClassName("score")[0].innerHTML = snakeBody.lenght;
-    // console.log(snakeBody.lenght)
     addSegments()
     const inputDirection = getInputDirection();
     for (let i = snakeBody.length - 2; i >= 0; i--) {
         snakeBody[i + 1] = { ...snakeBody[i] }
-        // if (i !== 0 && (i + 2) % 5 === 0) {
-        //     SNAKE_SPEED += 0.25
-        //     console.log(i)
-        // }
     } 
 
     snakeBody[0].x += inputDirection.x;
@@ -33,10 +27,6 @@ export function draw(gameBoard) {
 
 export function expandSnake(amount) {
     newSegments += amount
-}
-
-export function displayScore(newSegments) {
-    // document.getElementsByClassName("score").innerHTML = newSegments;
 }
 
 export function onSnake(position, {ignoreHead = false} = {}) {
